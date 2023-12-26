@@ -4,12 +4,12 @@ public class ApiResponse<T>
 {
    public ResponseStatus Status { get; }
    public T? Data { get; } 
-   public string Message { get; }
+   public string[] Messages { get; }
 
-   public ApiResponse(ResponseStatus status, T? data, string message)
+   public ApiResponse(ResponseStatus status, T? data, string[] messages)
    {
       Status = status;
       Data = data;
-      Message = message;
+      Messages = messages;
    }
 }
