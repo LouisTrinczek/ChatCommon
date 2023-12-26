@@ -1,4 +1,6 @@
-﻿namespace ChatLPCommon.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Chat.Common.Dtos
 {
     public class ServerResponseDto
     {
@@ -9,9 +11,9 @@
         public ServerChannelResponseDto[] Channels { get; }
 
         public ServerResponseDto(
-            Guid id, 
-            string name, 
-            Guid ownerId, 
+            Guid id,
+            string name,
+            Guid ownerId,
             UserResponseDto[] members,
             ServerChannelResponseDto[] channels)
         {
@@ -20,6 +22,23 @@
             OwnerId = ownerId;
             Members = members;
             Channels = channels;
+        }
+    }
+
+    public class ServerCreationDto
+    {
+        public string Name { get; }
+
+        public ServerCreationDto(string name)
+        {
+            Name = name;
+        }
+    }
+
+    public class ServerUpdateDto : ServerCreationDto
+    {
+        public ServerUpdateDto(string name) : base(name)
+        {
         }
     }
 }
