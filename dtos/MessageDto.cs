@@ -30,6 +30,13 @@
 
     public class MessageUpdateDto
     {
+        public Guid Id { get; }
+        public string Content { get; }
         
+        public MessageUpdateDto(Guid id, string content)
+        {
+            Id = id;
+            Content = content;
+        }
     }
 }
