@@ -1,16 +1,20 @@
-﻿namespace Chat.Common.Dtos
+﻿using Chat.Common.Types;
+
+namespace Chat.Common.Dtos
 {
     public class UserResponseDto
     {
         public Guid Id { get; }
         public string Username { get; }
-        public string Status { get; }
+        public OnlineStatus OnlineStatus { get; }
+        public string AvatarUrl { get; }
 
-        public UserResponseDto(Guid id, string username, string status)
+        public UserResponseDto(Guid id, string username, OnlineStatus onlineStatus, string avatarUrl)
         {
             Id = id;
             Username = username;
-            Status = status;
+            OnlineStatus = onlineStatus;
+            AvatarUrl = avatarUrl;
         }
     }
 

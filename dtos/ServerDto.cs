@@ -5,6 +5,7 @@
         public Guid Id { get; }
         public string Name { get; }
         public Guid OwnerId { get; }
+        public string IconUrl { get; }
         public UserResponseDto[] Members { get; }
         public ServerChannelResponseDto[] Channels { get; }
 
@@ -12,12 +13,14 @@
             Guid id,
             string name,
             Guid ownerId,
+            string iconUrl,
             UserResponseDto[] members,
             ServerChannelResponseDto[] channels)
         {
             Id = id;
             Name = name;
             OwnerId = ownerId;
+            IconUrl = iconUrl;
             Members = members;
             Channels = channels;
         }
