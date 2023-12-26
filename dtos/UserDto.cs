@@ -1,15 +1,15 @@
 ﻿namespace ChatLPCommon.Dtos
 {
-    public class UserDto
+    public class UserResponseDto
     {
-        public Guid Id;
-        public string Email;
-        public string Status;
+        public Guid Id { get; }
+        public string Username { get; }
+        public string Status { get; }
 
-        public UserDto(Guid id, string email, string status)
+        public UserResponseDto(Guid id, string username, string status)
         {
             Id = id;
-            Email = email;
+            Username = username;
             Status = status;
         }
     }    

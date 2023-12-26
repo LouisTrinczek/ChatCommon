@@ -1,12 +1,12 @@
 ﻿namespace ChatLPCommon.Dtos
 {
-    public class AttachmentDto
+    public class AttachmentResponseDto
     {
-        public Guid Id;
-        public string FileName;
-        public string Url;
+        public Guid Id { get; }
+        public string FileName { get; }
+        public string Url { get; }
 
-        public AttachmentDto(Guid id, string fileName, string url)
+        public AttachmentResponseDto(Guid id, string fileName, string url)
         {
             Id = id;
             FileName = fileName;

@@ -1,12 +1,12 @@
 ﻿namespace ChatLPCommon.Dtos
 {
-    public class ServerChannelDto
+    public class ServerChannelResponseDto
     {
-        public Guid Id;
-        public string Name;
-        public ServerChannelMessageDto[] Messages;
+        public Guid Id { get; }
+        public string Name { get; }
+        public ServerChannelMessageResponseDto[]? Messages { get; }
 
-        public ServerChannelDto(Guid id, string name, ServerChannelMessageDto[] messages)
+        public ServerChannelResponseDto(Guid id, string name, ServerChannelMessageResponseDto[]? messages)
         {
             Id = id;
             Name = name;
@@ -14,14 +14,14 @@
         }
     }
 
-    public class ServerChannelMessageDto
+    public class ServerChannelMessageResponseDto
     {
-        public Guid Id;
-        public Guid AuthorId;
-        public string Content;
-        public AttachmentDto[]? Attachments;
+        public Guid Id { get; }
+        public Guid AuthorId { get; }
+        public string Content { get; }
+        public AttachmentResponseDto[]? Attachments { get; }
 
-        public ServerChannelMessageDto(Guid id, Guid authorId, string content, AttachmentDto[]? attachments)
+        public ServerChannelMessageResponseDto(Guid id, Guid authorId, string content, AttachmentResponseDto[]? attachments)
         {
             Id = id;
             AuthorId = authorId;
