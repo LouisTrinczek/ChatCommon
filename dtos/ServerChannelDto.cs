@@ -4,9 +4,9 @@
     {
         public Guid Id { get; }
         public string Name { get; }
-        public ServerChannelMessageResponseDto[]? Messages { get; }
+        public MessageResponseDto[]? Messages { get; }
 
-        public ServerChannelResponseDto(Guid id, string name, ServerChannelMessageResponseDto[]? messages)
+        public ServerChannelResponseDto(Guid id, string name, MessageResponseDto[]? messages)
         {
             Id = id;
             Name = name;
@@ -14,19 +14,20 @@
         }
     }
 
-    public class ServerChannelMessageResponseDto
+    public class ServerChannelCreateDto
     {
-        public Guid Id { get; }
-        public Guid AuthorId { get; }
-        public string Content { get; }
-        public AttachmentResponseDto[]? Attachments { get; }
+        public string Name { get; }
 
-        public ServerChannelMessageResponseDto(Guid id, Guid authorId, string content, AttachmentResponseDto[]? attachments)
+        public ServerChannelCreateDto(string name)
         {
-            Id = id;
-            AuthorId = authorId;
-            Content = content;
-            Attachments = attachments;
+            Name = name;
+        }
+    }
+
+    public class ServerChannelUpdateDto : ServerChannelCreateDto
+    {
+        public ServerChannelUpdateDto(string name) : base(name)
+        {
         }
     }
 }
