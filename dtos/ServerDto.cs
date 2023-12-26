@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChatLPCommon.Dtos
+namespace Chat.Common.Dtos
 {
     public class ServerResponseDto
     {

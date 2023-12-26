@@ -1,4 +1,4 @@
-﻿namespace ChatLPCommon.Types;
+﻿namespace Chat.Common.Types;
 
 public enum ResponseStatus
 {

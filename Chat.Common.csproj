@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>12</LangVersion>
+        <AssemblyName>Chat.Common</AssemblyName>
+        <RootNamespace>Chat.Common</RootNamespace>
     </PropertyGroup>
 
 </Project>
