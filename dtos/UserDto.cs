@@ -1,15 +1,26 @@
-﻿using Chat.Common.Types;
+﻿using System.ComponentModel.DataAnnotations;
+using Chat.Common.Types;
 
 namespace Chat.Common.Dtos
 {
     public class UserResponseDto
     {
-        public Guid Id { get; }
-        public string Username { get; }
-        public OnlineStatus OnlineStatus { get; }
-        public string AvatarUrl { get; }
+        public Guid Id { get; set; }
+        public string Username { get; set; }
+        public OnlineStatus OnlineStatus { get; set; }
+        public string AvatarUrl { get; set; }
 
-        public UserResponseDto(Guid id, string username, OnlineStatus onlineStatus, string avatarUrl)
+        /// <summary>
+        /// Parameterless Constructor for Mapperly to work
+        /// </summary>
+        public UserResponseDto() { }
+
+        public UserResponseDto(
+            Guid id,
+            string username,
+            OnlineStatus onlineStatus,
+            string avatarUrl
+        )
         {
             Id = id;
             Username = username;
@@ -20,10 +31,18 @@ namespace Chat.Common.Dtos
 
     public class UserRegistrationDto
     {
+        [Required(ErrorMessage = "UsernameIsRequired")]
+        [MaxLength(20, ErrorMessage = "UsernameIsTooLong")]
         public string Username { get; }
+
+        [Required(ErrorMessage = "EmailIsRequired")]
+        [EmailAddress(ErrorMessage = "EmailIsNotValid")]
         public string Email { get; }
+
+        [Required(ErrorMessage = "PasswordIsRequired")]
+        [MinLength(7, ErrorMessage = "PasswordIsTooShort")]
         public string Password { get; }
-        
+
         public UserRegistrationDto(string username, string email, string password)
         {
             Username = username;
@@ -37,7 +56,8 @@ namespace Chat.Common.Dtos
         public new string? Username { get; }
         public new string? Email { get; }
 
-        public UserLoginDto(string username, string email, string password) : base(username, email, password)
+        public UserLoginDto(string username, string email, string password)
+            : base(username, email, password)
         {
             Username = username;
             Email = email;
@@ -49,8 +69,9 @@ namespace Chat.Common.Dtos
         public new string? Username { get; }
         public new string? Email { get; }
         public new string? Password { get; }
-        
-        public UserUpdateDto(string username, string email, string password) : base(username, email, password)
+
+        public UserUpdateDto(string username, string email, string password)
+            : base(username, email, password)
         {
             Username = username;
             Email = email;

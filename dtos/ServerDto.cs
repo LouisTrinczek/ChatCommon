@@ -1,13 +1,17 @@
-﻿namespace Chat.Common.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Chat.Common.Dtos
 {
     public class ServerResponseDto
     {
-        public Guid Id { get; }
-        public string Name { get; }
-        public Guid OwnerId { get; }
-        public string IconUrl { get; }
-        public UserResponseDto[] Members { get; }
-        public ServerChannelResponseDto[] Channels { get; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public Guid OwnerId { get; set; }
+        public string IconUrl { get; set; }
+        public UserResponseDto[] Members { get; set; }
+        public ServerChannelResponseDto[] Channels { get; set; }
+
+        public ServerResponseDto() { }
 
         public ServerResponseDto(
             Guid id,
@@ -15,7 +19,8 @@
             Guid ownerId,
             string iconUrl,
             UserResponseDto[] members,
-            ServerChannelResponseDto[] channels)
+            ServerChannelResponseDto[] channels
+        )
         {
             Id = id;
             Name = name;
@@ -28,7 +33,8 @@
 
     public class ServerCreationDto
     {
-        public string Name { get; }
+        [Required(ErrorMessage = "ServerNameIsRequired")]
+        public string Name { get; set; }
 
         public ServerCreationDto(string name)
         {
@@ -38,8 +44,7 @@
 
     public class ServerUpdateDto : ServerCreationDto
     {
-        public ServerUpdateDto(string name) : base(name)
-        {
-        }
+        public ServerUpdateDto(string name)
+            : base(name) { }
     }
 }
