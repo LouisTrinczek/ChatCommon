@@ -1,22 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Chat.Common.Dtos
+﻿namespace Chat.Common.Dtos
 {
     public class MessageResponseDto
     {
-        public Guid Id { get; set; }
-        public Guid AuthorId { get; set; }
-        public string Content { get; set; }
-        public AttachmentResponseDto[]? Attachments { get; set; }
+        public Guid Id { get; }
+        public Guid AuthorId { get; }
+        public string Content { get; }
+        public AttachmentResponseDto[]? Attachments { get; }
 
-        public MessageResponseDto() { }
-
-        public MessageResponseDto(
-            Guid id,
-            Guid authorId,
-            string content,
-            AttachmentResponseDto[]? attachments
-        )
+        public MessageResponseDto(Guid id, Guid authorId, string content, AttachmentResponseDto[]? attachments)
         {
             Id = id;
             AuthorId = authorId;
@@ -27,13 +18,8 @@ namespace Chat.Common.Dtos
 
     public class MessageCreateDto
     {
-        [Required(ErrorMessage = "MessageContentIsRequired")]
-        public string Content { get; set; }
-
-        [Required(ErrorMessage = "AuthorIdIsRequired")]
-        public Guid AuthorId { get; set; }
-
-        public MessageCreateDto() { }
+        public string Content { get; }
+        public Guid AuthorId { get; }
 
         public MessageCreateDto(string content, Guid authorId)
         {
@@ -44,13 +30,9 @@ namespace Chat.Common.Dtos
 
     public class MessageUpdateDto
     {
-        public Guid Id { get; set; }
-
-        [Required(ErrorMessage = "MessageContentIsRequired")]
-        public string Content { get; set; }
-
-        public MessageUpdateDto() { }
-
+        public Guid Id { get; }
+        public string Content { get; }
+        
         public MessageUpdateDto(Guid id, string content)
         {
             Id = id;

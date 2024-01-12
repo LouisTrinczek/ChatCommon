@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Chat.Common.Dtos
+﻿namespace Chat.Common.Dtos
 {
     public class FriendsResponseDto
     {
@@ -11,10 +9,9 @@ namespace Chat.Common.Dtos
             Friend = friend;
         }
     }
-
+    
     public class FriendsRequestDto
     {
-        [Required(ErrorMessage = "FriendIdIsRequired")]
         public Guid FriendId { get; }
 
         public FriendsRequestDto(Guid friendId)
