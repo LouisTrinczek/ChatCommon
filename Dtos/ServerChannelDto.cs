@@ -6,9 +6,13 @@ namespace Chat.Common.Dtos
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public MessageResponseDto[]? Messages { get; set; }
+        public ICollection<MessageResponseDto> Messages { get; set; }
 
-        public ServerChannelResponseDto(Guid id, string name, MessageResponseDto[]? messages)
+        public ServerChannelResponseDto(
+            Guid id,
+            string name,
+            ICollection<MessageResponseDto> messages
+        )
         {
             Id = id;
             Name = name;

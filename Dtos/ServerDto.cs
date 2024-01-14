@@ -7,9 +7,9 @@ namespace Chat.Common.Dtos
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid OwnerId { get; set; }
-        public string IconUrl { get; set; }
-        public UserResponseDto[] Members { get; set; }
-        public ServerChannelResponseDto[] Channels { get; set; }
+        public string? IconUrl { get; set; }
+        public ICollection<UserResponseDto> Members { get; set; }
+        public ICollection<ServerChannelResponseDto> Channels { get; set; }
 
         public ServerResponseDto() { }
 
@@ -18,8 +18,8 @@ namespace Chat.Common.Dtos
             string name,
             Guid ownerId,
             string iconUrl,
-            UserResponseDto[] members,
-            ServerChannelResponseDto[] channels
+            ICollection<UserResponseDto> members,
+            ICollection<ServerChannelResponseDto> channels
         )
         {
             Id = id;
