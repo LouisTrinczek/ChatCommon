@@ -52,16 +52,7 @@ namespace Chat.Common.Dtos
 
     public class UserUpdateDto : UserRegistrationDto
     {
-        public new string? Username { get; }
-        public new string? Email { get; }
-        public new string? Password { get; }
-
         public UserUpdateDto(string username, string email, string password)
-            : base(username, email, password)
-        {
-            Username = username;
-            Email = email;
-            Password = password;
-        }
+            : base(username, email, password) { }
     }
 }
