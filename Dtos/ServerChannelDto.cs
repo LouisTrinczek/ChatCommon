@@ -8,6 +8,8 @@ namespace Chat.Common.Dtos
         public string Name { get; set; }
         public ICollection<MessageResponseDto> Messages { get; set; }
 
+        public ServerChannelResponseDto() { }
+
         public ServerChannelResponseDto(
             Guid id,
             string name,

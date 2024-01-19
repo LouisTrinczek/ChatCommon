@@ -30,15 +30,11 @@ namespace Chat.Common.Dtos
         [Required(ErrorMessage = "MessageContentIsRequired")]
         public string Content { get; set; }
 
-        [Required(ErrorMessage = "AuthorIdIsRequired")]
-        public Guid AuthorId { get; set; }
-
         public MessageCreateDto() { }
 
-        public MessageCreateDto(string content, Guid authorId)
+        public MessageCreateDto(string content)
         {
             Content = content;
-            AuthorId = authorId;
         }
     }
 
