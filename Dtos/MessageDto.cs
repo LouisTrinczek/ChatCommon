@@ -8,6 +8,7 @@ namespace Chat.Common.Dtos
         public Guid AuthorId { get; set; }
         public string Content { get; set; }
         public AttachmentResponseDto[]? Attachments { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         public MessageResponseDto() { }
 
@@ -15,13 +16,15 @@ namespace Chat.Common.Dtos
             Guid id,
             Guid authorId,
             string content,
-            AttachmentResponseDto[]? attachments
+            AttachmentResponseDto[]? attachments,
+            DateTime createdAt
         )
         {
             Id = id;
             AuthorId = authorId;
             Content = content;
             Attachments = attachments;
+            CreatedAt = createdAt;
         }
     }
 
